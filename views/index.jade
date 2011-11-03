@@ -1,0 +1,12 @@
+.logo
+    img(src="/images/site/gusher-75.png")
+h1= title
+p
+    a.action(href="/stream/new") New stream
+#streams
+    - each stream in streams
+      p.stream
+        div.title
+            a(href="/"+stream.name)!= stream.name
+        div.body.annotation= stream.title
+#content

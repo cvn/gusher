@@ -1,0 +1,81 @@
+body {
+  font-family: sans-serif;
+  background-color: #f0f2e9;
+  color: #363333;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: #f90;
+}
+h1 {
+  font-family: 'EngraversLTStdBoldFace';
+  font-size: 3em;
+  margin: 0;
+}
+h1 a {
+  color: #363333;
+  text-decoration: none;
+}
+h1 a:hover {
+  text-decoration: underline;
+}
+#home {
+  position: absolute;
+  left: 0;
+  top: 16px;
+  background-color: #363333;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  -webkit-box-shadow: 1px 1px 4px rgba(0,0,0,0.25);
+}
+#home a {
+  display: inline-block;
+  padding: 10px 12px 10px 16px;
+  line-height: 0;
+  opacity: 0.8;
+}
+#home a:hover {
+  opacity: 1;
+}
+#container {
+  position: relative;
+  padding: 100px;
+}
+#sidebar {
+  position: absolute;
+  left: 700px;
+  background-color: #363333;
+  color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+}
+#services {
+  margin: 1em 0;
+}
+#content {
+  width: 580px;
+}
+.annotation {
+  color: #808080;
+  font-size: 0.8em;
+  font-style: italic;
+}
+.action {
+  display: inline-block;
+  background-color: #f90;
+  padding: 12px 16px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.action:hover {
+  background-color: #363333;
+}
+@font-face {
+  font-family: 'EngraversLTStdBoldFace';
+  src: url("/fonts/engravers.eot");
+  src: url("/fonts/engravers.eot?#iefix") format('embedded-opentype'), url("/fonts/engravers.woff") format('woff'), url("/fonts/engravers.ttf") format('truetype'), url("/fonts/engravers.svg#EngraversLTStdBoldFace") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

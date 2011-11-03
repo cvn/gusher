@@ -1,0 +1,90 @@
+<script id="blogTemplate" type="text/html">
+  <div class="article {{ type }}" timestamp="{{ timestamp }}">
+    <h4 class="title">{{{ title }}}</h4>
+    <div class="info">
+      <ul class="shy extra cleanlist">
+        <div class="triangle"></div>
+        <li><a href="{{ post_url }}">{{ type }}</a></li>
+        <li>Service: <img class="favicon" src="{{ icon }}" /> <a href="{{ service_url }}">{{ service }}</a></li>
+        {{#replies}}<li>Replies: {{ replies }}</li>{{/replies}}
+        {{#likes}}<li>Likes: {{ likes }}</li>{{/likes}}
+      </ul>
+    </div>
+    {{{ body }}}
+    {{{ comments }}}
+  </div>
+</script>
+
+<script id="eventTemplate" type="text/html">
+  <div class="article {{ type }}" timestamp="{{ timestamp }}">
+    <h4 class="title">
+      <div class="info" style="background: url('{{ post_icon }}')">
+        <ul class="shy extra cleanlist">
+          <div class="triangle"></div>
+          <li><a href="{{ post_url }}">{{ type }}</a></li>
+          <li>Service: <img class="favicon" src="{{ icon }}" /> <a href="{{ service_url }}">{{ service }}</a></li>
+          <li>{{{ body }}}</li>
+          <li>{{{ comments }}}</li>
+        </ul>
+      </div>
+      <a href="{{ post_url }}">{{{ title }}}</a>
+    </h4>
+  </div>
+</script>
+
+<script id="quoteTemplate" type="text/html">
+  <div class="article {{ type }}" timestamp="{{ timestamp }}">
+    <h4 class="title"> <a href="{{ post_url }}">{{{ title }}}</a></h4>
+    <div class="info">
+      <ul class="shy extra cleanlist">
+        <div class="triangle"></div>
+        <li><a href="{{ post_url }}">{{ type }}</a></li>
+        <li>Service: <img class="favicon" title="{{ service }}" src="{{ icon }}" /> {{ service }}</li>
+        {{#replies}}<li>Replies: {{ replies }}</li>{{/replies}}
+        {{#likes}}<li>Likes: {{ likes }}</li>{{/likes}}
+      </ul>
+    </div>
+    <blockquote>{{{ body }}}</blockquote>
+    {{{ comments }}}
+  </div>
+</script>
+
+<script id="photoTemplate" type="text/html">
+  <div class="article {{ type }}" timestamp="{{ timestamp }}">
+    <h4 class="title">{{ title }}</h4>
+    <div class="info">
+      <ul class="shy extra cleanlist">
+        <div class="triangle"></div>
+        <li><a href="{{ post_url }}">{{ type }}</a></li>
+        <li>Service: <img class="favicon" title="{{ service }}" src="{{ icon }}" /> <a href="{{ user_url }}">{{ service }}</a></li>
+        {{#replies}}<li>Replies: {{ replies }}</li>{{/replies}}
+        {{#likes}}<li>Likes: {{ likes }}</li>{{/likes}}
+      </ul>
+    </div>
+    <a href="{{ post_url }}">
+      {{{ body }}}
+    </a>
+    {{{ comments }}}
+  </div>
+</script>
+
+<script id="linkTemplate" type="text/html">
+  <dl class="article {{ type }}" timestamp="{{ timestamp }}">
+    <dt class="title">
+      <a href="{{ post_url }}">{{ title }}</a>
+    </dt>
+    <dd>
+      {{{ body }}}    
+    </dd>
+    <div class="info">
+      <ul class="shy extra cleanlist">
+        <div class="triangle"></div>
+        <li><a href="{{ post_url }}">{{ type }}</a></li>
+        <li><p>{{{ comments }}}</p></li>
+        <li>Service: <img class="favicon" src="{{ icon }}" /> <a href="{{ user_url }}">{{ service }}</a></li>
+        {{#replies}}<li>Replies: {{ replies }}</li>{{/replies}}
+        {{#likes}}<li>Likes: {{ likes }}</li>{{/likes}}
+      </ul>
+    </div>
+  </dl>
+</script>

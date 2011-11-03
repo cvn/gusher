@@ -1,0 +1,16 @@
+#home
+    a(href="/")
+        img(src="/images/site/home-16.png")
+h1= title
+form(method="post")
+    div
+        p
+            span Name : 
+            input(type="text", name="name", id="editStreamName")
+            br
+            span.annotation Will be used for your URL e.g. http://gusher.in/johndoe
+        p
+            span Title : 
+            input(type="text", name="title", id="editStreamTitle")
+        p#editStreamSubmit
+            input(type="submit", value="Add")

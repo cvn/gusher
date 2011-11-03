@@ -1,0 +1,84 @@
+#home
+    a(href="/")
+        img(src="/images/site/home-16.png")
+
+#sidebar
+    div.stream
+        h1= title
+        div.title= stream.title
+        form#deleteStream(method="post", action="/stream/delete")
+          input(type="hidden", name="_id", value=stream._id.toHexString())
+          input(type="submit", value="Delete stream")
+    ul#services.cleanlist
+    div
+      form#addFeed(method="post", action="/stream/addfeed")
+        input(type="hidden", name="targetstream", value=stream.name)
+        div
+          span Type :
+          select(name="type", id="addFeedType")
+              option="DailyBoothPhotos"
+              option="DeliciousBookmarks"
+              option="DisqusComments"
+              option="FlickrPhotos"
+              option="GithubActivity"
+              option="GithubCommits"
+              option="GithubGists"
+              option="GoogleCalendarUpcoming"
+              option="GooglePlusActivity"
+              option="GoogleReaderStarred"
+              option="InstapaperStarred"
+              option="LastfmActivity"
+              option="LastfmFavs"
+              option="StackOverflowAnswers"
+              option="TumblrPosts"
+              option="TwitterPosts"
+              option="VimeoActivity"
+              option="YouTubeFavorites"
+        div
+          span User name :
+          input( type="text", name="user_name", id="addFeedUsername")
+        div
+          span User ID : 
+          input( type="text", name="user_id", id="addFeedUserid")
+        div#editArticleSubmit
+          input(type="submit", value="Add")
+    div.created_at.annotation= 'Created on ' + stream.created_at
+    - each feed in stream.feeds
+      li
+        a.removefeed(href="#", data-targetstream=stream.name, data-timestamp=feed.timestamp)= feed.type
+
+#content
+
+| <script type="text/javascript">
+|   // Page specific adjustments
+|   TwitterPostsParams.feed_limit = 20;
+|   
+|   // Create Feed Objects
+|   var Feeds = {
+- each feed, i in stream.feeds
+  =feed.type + i + ' : new Feed(' + feed.type + 'Params),\n'
+|   };
+- each feed, i in stream.feeds
+  ='Feeds.' + feed.type + i + '.params.user_name = \'' + feed.user_name + '\';\n'
+  ='Feeds.' + feed.type + i + '.params.user_id = \'' + feed.user_id + '\';\n'
+
+|   
+|   $(document).ready(function(){ 
+|     
+|     // Asynchronously load the template definition file.
+|     $.get('/templates/standard.html', function(templates) {
+|       // Inject all those templates at the end of the document.
+|       $('body').append(templates);
+|      
+|       // Trigger templating system to read templates
+|       ich.refresh();
+|       
+|       // Render templates
+|       $.each(Feeds, function(i,item){
+|         item.render();
+|       });
+|       
+|     });
+|     
+|   });
+| </script>

@@ -1,0 +1,129 @@
+.cleanlist {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.cleanlist li {
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+.cleanlist.horizontal li {
+	display: inline-block;
+}
+.headlinec {
+	margin: 2em 0 1em;
+	text-transform: uppercase;
+	color: #666;
+}
+.headlinec:first-child,
+.dateline:first-child {
+	margin-top: 0;
+}
+
+.article {
+	position:relative;
+	margin:0;
+}
+.article:not(:first-child) {
+	margin-top: 2em;
+}
+.article img {
+	max-width: 400px;
+	vertical-align: top;
+}
+.article pre, 
+.article pre {
+	word-wrap: break-word;
+}
+.article .title {
+	margin-bottom: .5em;
+}
+.article h3.title {
+	font-size: 1.5em;
+	margin-bottom: 0;
+}
+.article .info {
+	position: absolute;
+	top: 0;
+	left: -24px;
+	width: 16px;
+	height: 16px;
+	background-image: url('../images/standard/arrow-right-black.png');
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.article .info:hover {
+	background-image: url('../images/standard/arrow-down-black.png');
+}
+.article.tweet .info { background-image: url('../images/standard/tweet-16.png'); }
+.article.bookmark .info { background-image: url('../images/standard/bookmark-16.png'); }
+.article.code .info { background-image: url('../images/standard/code-16.png'); }
+.article.music .info { background-image: url('../images/standard/music-16.png'); }
+.article.add_comment .info { background-image: url('../images/standard/response-16.png'); }
+.article.like .info { background-image: url('../images/standard/like-16.png'); }
+.article.photo .info,
+.article.video .info { background-image: url('../images/standard/media-16.png'); }
+
+.article .extra {
+	position: absolute;
+	z-index: 100;
+	top: 13px;
+	left: -28px;
+	width: 200px;
+	background-color: rgba(0,0,0,.9);
+	color: white;
+	padding: 1em;
+	font-size: .8em;
+	border-top:solid 10px transparent;
+	background-clip: padding-box;
+	text-align: left;
+	-webkit-box-shadow: 0 10px 10px rgba(0,0,0,.3);
+	-moz-box-shadow: 0 10px 10px rgba(0,0,0,.3);
+	box-shadow: 0 10px 10px rgba(0,0,0,.3);
+}
+
+.article .extra .triangle{
+	background: url('../images/standard/arrow-up-black-22px.png') no-repeat;
+	position:absolute;
+	width:22px;
+	height:11px;
+	left:25px;
+	top:-11px;
+	opacity:.9;
+	filter:alpha(opacity=90);
+}
+
+.article .extra li:first-of-type {
+	text-transform: capitalize;
+}
+
+.article .extra a {
+	color: white;
+	border-bottom-color: #fff;
+}
+.article .extra .favicon {
+	border-radius: 2px;
+	background-color: white;
+}
+
+.shy {
+	display: none;
+}
+.article .info:hover .shy {
+	display:block;
+}
+.dateline {
+	margin-top: 3em;
+	margin-bottom: 3em;
+	text-transform: uppercase;
+	color: #666;
+}
+.favicon {
+	width: 16px;
+	height: 16px;
+}
+.albumcover {
+	max-width: 126px;
+	max-height: 126px;
+}
