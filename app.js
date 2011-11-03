@@ -7,9 +7,12 @@
 
 var express = require('express')
   , routes = require('./routes')
-  , StreamProvider = require('./streamprovider').StreamProvider
+  , StreamProvider = require('./streamprovider').StreamProvider;
 
-var app = module.exports = express.createServer();
+var app = module.exports = express.createServer()
+  , appPort = 0
+  , dbPort = 0
+  , dbName = '';
 
 // Configuration
 
@@ -26,16 +29,22 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+  appPort = 11581;
+  dbPort = 14633;
+  dbName = 'gusherdevdb';
 });
 
 app.configure('production', function(){
   app.use(express.errorHandler()); 
+  appPort = 11231;
+  dbPort = 14633;
+  dbName = 'gusherdb';
 });
 
 // App code
 
-var streamProvider = new StreamProvider('localhost', 14633);
+var streamProvider = new StreamProvider('localhost', dbName, dbPort);
 
 var formatDate = function(dateObj){
   dateObj = dateObj || new Date();
@@ -122,5 +131,5 @@ app.get('/', function(req, res){
   });
 });
 
-app.listen(11231);
+app.listen(appPort);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);

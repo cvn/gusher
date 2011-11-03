@@ -7,8 +7,8 @@ var Db = mongo.Db
 
 var streamCounter = 1;
 
-StreamProvider = function(host, port){
-  this.db = new Db('gusherdb', new Server(host, port, {autoreconnect: true}, {}));
+StreamProvider = function(host, database, port){
+  this.db = new Db(database, new Server(host, port, {autoreconnect: true}, {}));
   this.db.open(function(){});
 };
 
