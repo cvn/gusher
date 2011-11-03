@@ -31,7 +31,7 @@ It consists of two parts:
     Gusher Server
        node.js module, manages Gusher accounts    
     gusher.js
-        client-side, fetches feeds and renders streams
+       client-side script, fetches feeds and renders streams
 
 Gusher uses technology from:
 
