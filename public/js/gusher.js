@@ -96,7 +96,7 @@ Feed.prototype = {
         params.user_url = getString(params.user_url, data).replace('USERNAME', params.user_name).replace('USERID', params.user_id);
         // normalize the feed attach point
         baseArray = getProps(params.base, data);
-        if (baseArray==false){
+        if (!baseArray){
           return( logger(params.service + ' feed has no array of items (base = ' + params.base + '). Feed ignored.', params.debug) );
         }
         // iterate over feed items
@@ -219,7 +219,7 @@ var getProps = function(path, context){
       if(path[i] in context) {
         context = context[path[i]];
       } else {
-        context = false;
+        context = '';
         break;
       }
     };
